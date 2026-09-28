@@ -1465,8 +1465,6 @@ namespace WPEFramework {
             Register(RDKSHELL_METHOD_REMOVE_KEY_LISTENER, &RDKShell::removeKeyListenersWrapper, this);
             Register(RDKSHELL_METHOD_ADD_KEY_METADATA_LISTENER, &RDKShell::addKeyMetadataListenerWrapper, this);
             Register(RDKSHELL_METHOD_REMOVE_KEY_METADATA_LISTENER, &RDKShell::removeKeyMetadataListenerWrapper, this);
-            Register(RDKSHELL_METHOD_INJECT_KEY, &RDKShell::injectKeyWrapper, this);
-            Register(RDKSHELL_METHOD_GENERATE_KEYS, &RDKShell::generateKeyWrapper, this);
             Register(RDKSHELL_METHOD_GET_SCREEN_RESOLUTION, &RDKShell::getScreenResolutionWrapper, this);
             Register(RDKSHELL_METHOD_SET_SCREEN_RESOLUTION, &RDKShell::setScreenResolutionWrapper, this);
             Register(RDKSHELL_METHOD_CREATE_DISPLAY, &RDKShell::createDisplayWrapper, this);
