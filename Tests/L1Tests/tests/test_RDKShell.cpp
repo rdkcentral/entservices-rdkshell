@@ -91,7 +91,7 @@ TEST_F(RDKShellTest, RegisteredMethods){
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("enableKeyRepeats")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("enableLogsFlushing")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("enableVirtualDisplay")));
-    EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("generateKey")));
+    EXPECT_NE(Core::ERROR_NONE, handler.Exists(_T("generateKey")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("getAvailableTypes")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("getBounds")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("getClients")));
@@ -117,7 +117,7 @@ TEST_F(RDKShellTest, RegisteredMethods){
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("hideFullScreenImage")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("hideSplashLogo")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("ignoreKeyInputs")));
-    EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("injectKey")));
+    EXPECT_NE(Core::ERROR_NONE, handler.Exists(_T("injectKey")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("kill")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("launch")));
     EXPECT_EQ(Core::ERROR_NONE, handler.Exists(_T("launchApplication")));
