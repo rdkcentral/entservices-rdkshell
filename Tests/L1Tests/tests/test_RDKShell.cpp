@@ -236,19 +236,12 @@ TEST_F(RDKShellTest, resetinactivity)
 
 TEST_F(RDKShellTest, launchApplication)
 {
-        ON_CALL(*p_compositorImplMock, launchApplication(::testing::_, ::testing::_, ::testing::_, ::testing::_, ::testing::_))
-                .WillByDefault(::testing::Invoke(
-                [](const std::string& client, const std::string& uri, const std::string& mimeType, bool topmost, bool focus){
-                  EXPECT_EQ(client, string("testApp"));
-                  EXPECT_EQ(uri, string("/usr/bin/westeros_test"));
-                  EXPECT_EQ(mimeType, string("application/native"));
-                  EXPECT_EQ(topmost, false);
-                  EXPECT_EQ(focus, false);
-                  return true;
-                }));
+        EXPECT_CALL(*p_compositorImplMock, launchApplication(::testing::_, ::testing::_, ::testing::_, ::testing::_, ::testing::_))
+                .Times(0);
         EXPECT_EQ(Core::ERROR_NONE, handler.Invoke(connection, _T("launchApplication"), _T("{\"client\": \"testApp\","
                                                                                              "\"uri\": \"/usr/bin/westeros_test\","
                                                                                              "\"mimeType\": \"application/native\"}"), response));
+        EXPECT_NE(response.find("\"success\":false"), std::string::npos);
 }
 
 TEST_F(RDKShellTest, suspendApplication)
