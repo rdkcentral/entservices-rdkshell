@@ -234,6 +234,12 @@ TEST_F(RDKShellTest, resetinactivity)
         EXPECT_EQ(response, _T("{\"success\":true}"));
 }
 
+TEST_F(RDKShellTest, launchRejectsConfigurationOverrides)
+{
+        EXPECT_EQ(Core::ERROR_NONE, handler.Invoke(connection, _T("launch"), _T("{\"callsign\":\"testApp\",\"type\":\"WebKitBrowser\",\"configuration\":\"{\\\"root\\\":{\\\"mode\\\":\\\"Local\\\"}}\"}"), response));
+        EXPECT_NE(response.find("\"success\":false"), std::string::npos);
+}
+
 TEST_F(RDKShellTest, launchApplication)
 {
         ON_CALL(*p_compositorImplMock, launchApplication(::testing::_, ::testing::_, ::testing::_, ::testing::_, ::testing::_))

@@ -3797,6 +3797,11 @@ namespace WPEFramework {
                 result = false;
                 response["message"] = "please specify callsign";
             }
+            if (parameters.HasLabel("configuration") && !parameters["configuration"].String().empty())
+            {
+                result = false;
+                response["message"] = "Configuration overrides are not available";
+            }
 
             string appCallsign("");
             /*if (result)
