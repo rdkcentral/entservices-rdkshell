@@ -4913,27 +4913,8 @@ namespace WPEFramework {
                 }
                 else if (mimeType == RDKSHELL_APPLICATION_MIME_TYPE_NATIVE)
                 {
-                    bool topmost = false;
-                    bool focus = false;
-
-                    if (parameters.HasLabel("topmost"))
-                    {
-                        topmost = parameters["topmost"].Boolean();
-                    }
-                    if (parameters.HasLabel("focus"))
-                    {
-                        focus = parameters["focus"].Boolean();
-                    }
-
-                    gRdkShellMutex.lock();
-                    result = CompositorController::launchApplication(client, uri, mimeType, topmost, focus);
-		    RdkShell::CompositorController::addListener(client, mEventListener);
-                    gRdkShellMutex.unlock();
-
-                    if (!result)
-                    {
-                        response["message"] = "failed to launch application";
-                    }
+                    result = false;
+                    response["message"] = "Native application launch is not available";
                 }
                 else
                 {
